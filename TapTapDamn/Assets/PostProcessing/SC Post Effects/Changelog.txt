@@ -1,0 +1,39 @@
+0.3.0
+Added:
+- Volume blending example scene
+- Volume trigger example scene
+
+Changed:
+- Single-Pass Stereo VR fixes for: 
+	*Edge Detection
+	*Blur 
+	*Overlay
+	*Color Split
+	*Double Vision
+	*Lensflares
+- Color Depth effect was renamed to "Posterize"
+- Clearer instructions window in Unity 2018.1
+
+Removed:
+- Bloom buffer option from Lens Flare effect
+
+0.2.0
+Added:
+- Intensity parameter to Screen Gradient and Overlays effects
+- Demo scene
+
+0.1.0
+Added:
+- Blur effect
+- Ambient Occlusion 2D effect
+- Lens flares effect (expiremental)
+- Mosaic effect
+
+Fixed:
+- Refraction offsetting entire screen in some cases
+
+Changed:
+- Converted sample refraction normal maps to DUDV maps
+
+0.0.1
+Initial release
