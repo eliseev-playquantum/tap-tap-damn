@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas_Gameplay
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: b429691850c16f94cbe659aba1c4b6b1, type: 3}
+    - {fileID: 2800000, guid: e834d5af210a7b94588f0187429c6d96, type: 3}
+    - {fileID: 2800000, guid: 9910cbfafabeb5b48b126d91a496ad34, type: 3}
+    - {fileID: 2800000, guid: 687a23e6c81671e42b7170acf4e48859, type: 3}
+    - {fileID: 2800000, guid: 3a4017dd0d026fc47a4609a1c54a2d38, type: 3}
+    - {fileID: 2800000, guid: dc896eea435ebbe4fa3a8f9ebcff987f, type: 3}
+    - {fileID: 2800000, guid: dfec7c344a2f0064eaa0d9a0cc8fc8cd, type: 3}
+    - {fileID: 2800000, guid: bf6c970426663714f9504729f2c67ba6, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: bf6c970426663714f9504729f2c67ba6, type: 3}
+  - {fileID: 21300000, guid: dfec7c344a2f0064eaa0d9a0cc8fc8cd, type: 3}
+  - {fileID: 21300000, guid: 687a23e6c81671e42b7170acf4e48859, type: 3}
+  - {fileID: 21300000, guid: b429691850c16f94cbe659aba1c4b6b1, type: 3}
+  - {fileID: 21300000, guid: dc896eea435ebbe4fa3a8f9ebcff987f, type: 3}
+  - {fileID: 21300000, guid: 9910cbfafabeb5b48b126d91a496ad34, type: 3}
+  - {fileID: 21300000, guid: 3a4017dd0d026fc47a4609a1c54a2d38, type: 3}
+  - {fileID: 21300000, guid: e834d5af210a7b94588f0187429c6d96, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Arrow
+  - WarFrameCircle
+  - Key_Up
+  - Center
+  - setka
+  - Key_DownFill
+  - Key_UpFill
+  - Key_Down
+  m_Tag: Atlas_Gameplay
+  m_IsVariant: 0
