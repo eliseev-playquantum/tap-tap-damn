@@ -43,7 +43,7 @@ public class LevelManager : MonoBehaviour {
         if(selectedmode == e_GameMode.Hell)
             if (Random.Range(0, 3) > 1)
                 itemSetup.reel.speed *= -1;
-    }
+    } 
 
     //---стартуем уровень
     public void StartNewLevel(e_GameMode gamemode)
@@ -58,7 +58,11 @@ public class LevelManager : MonoBehaviour {
         {
             case e_GameMode.Classic:
                 itemSetup.CreatePrefsHistoryMode();
-                levelTimer.StartTimer();
+                if (!levelTimer.timerStarted)
+                {
+                    levelTimer.StartTimer();
+                    level = 0;
+                }
                 break;
             case e_GameMode.Hell:
                 itemSetup.CreatePrefsHellMode();
@@ -104,16 +108,20 @@ public class LevelManager : MonoBehaviour {
             foreach (SpriteRenderer sprite in sprites) sprite.sharedMaterial.DOFloat(0, "_Transparent", 0.3f);
             itemSetup.KeyCenter.DOScale(0.8f, 0.3f).OnComplete(() => {
                 //---code...
-                if (selectedmode == e_GameMode.Hell)
+                if (time > 0)
                 {
-                    if (time > 0)
-                    {
-                        StartNewLevel(e_GameMode.Hell);
-                    }
-                    else
-                    {
-                        LevelEnd();
-                    }
+                    StartNewLevel(selectedmode);
+                    
+                }
+                
+                // if (selectedmode == e_GameMode.Hell)
+                // {
+                        //StartNewLevel(e_GameMode.Hell);
+                // }
+                
+                else
+                {
+                    LevelEnd();
                 }
                 foreach (SpriteRenderer sprite in sprites) sprite.sharedMaterial.DOFloat(1, "_Transparent", 0.3f);
                 itemSetup.KeyCenter.DOScale(1f, 0.3f);
@@ -128,5 +136,10 @@ public class LevelManager : MonoBehaviour {
         //itemSetup.CreatePrefsHellMode();
         StartNewLevel(e_GameMode.Hell);
     }
+    public void StartClassicMode()
+    {
+        StartNewLevel(e_GameMode.Classic);
+    }
+ 
     #endregion
 }

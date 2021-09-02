@@ -1,4 +1,6 @@
-﻿public class SystemEvents : GameEvent
+﻿using UnityEngine.PlayerLoop;
+
+public class SystemEvents : GameEvent
 {
     public static void GPGSLogin(bool authenticated)
     {
@@ -9,6 +11,7 @@
 //Вызывается когда обновляется выбранный язык
 public class EventSetLang : SystemEvents
 {
+   
 }
 
 //Вызывается когда обновляется выбранный язык

@@ -49,7 +49,7 @@ public class ItemSetup : MonoBehaviour {
             float y = (CircleCentre.position.y + CenterOffset.y) + Radius * Mathf.Sin(2 * Mathf.PI * i / Count);
             if (Random.Range(0, 2) != 0)
             {
-                GameObject instPref = Instantiate(prefab, CenterObj);
+                GameObject instPref = Instantiate(prefab, CircleCentre);
                 instPref.transform.position = new Vector3(x, y, 0.4f);
                 instPref.transform.Rotate(new Vector3(0, 0, angle * (i - 1) - angle));
                 Item item = instPref.GetComponent<Item>();

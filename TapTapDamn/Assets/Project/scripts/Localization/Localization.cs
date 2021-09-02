@@ -38,7 +38,7 @@ public class Localization
 
         //Парсим файл
         //ParseXmlFile();
-//        ParseCSVFile();
+        ParseCSVFile();
 
         //---пока закомичено
         // Сохраняем выбранный язык
@@ -52,61 +52,61 @@ public class Localization
     }
 
 
-    //#region Parse
-    //private void ParseCSVFile()
-    //{
-    //    //Очищаем словарь
-    //    if (_dictionary != null)
-    //        _dictionary.Clear();
-    //    else
-    //        _dictionary = new Dictionary<string, string>();
+    #region Parse
+    private void ParseCSVFile()
+    {
+        //Очищаем словарь
+        if (_dictionary != null)
+            _dictionary.Clear();
+        else
+            _dictionary = new Dictionary<string, string>();
 
-    //    // Загружаем и парсим файл
-    //    TextAsset loadtext = ResourcesLoadManager.GetTextAsset(PATH_TO_LOCALIZATION);
-    //    string[,] grid = CSVReader.SplitCsvGrid(loadtext.text);
+        // Загружаем и парсим файл
+        TextAsset loadtext = Resources.Load<TextAsset>(PATH_TO_LOCALIZATION);
+        string[,] grid = CSVReader.SplitCsvGrid(loadtext.text);
 
 
-    //    // находим столбец с выбранным языком
-    //    int langRow = 1;
-    //    for (int x = 1; x < grid.GetUpperBound(0); x++)
-    //        if (grid[x, 0] == Lang.ToString())
-    //        {
-    //            langRow = x;
-    //            break;
-    //        }
+        // находим столбец с выбранным языком
+        int langRow = 1;
+        for (int x = 1; x < grid.GetUpperBound(0); x++)
+            if (grid[x, 0] == Lang.ToString())
+            {
+                langRow = x;
+                break;
+            }
 
-    //    // Заносим этот столбец в словарь
-    //    for (int y = 1; y < grid.GetUpperBound(1); y++)
-    //    {
-    //        if (grid[0, y] == "") continue;
-    //        if (grid[0, y][0] == '$') continue;
+        // Заносим этот столбец в словарь
+        for (int y = 1; y < grid.GetUpperBound(1); y++)
+        {
+            if (grid[0, y] == "") continue;
+            if (grid[0, y][0] == '$') continue;
 
-    //        string wordCode = grid[0, y];
-    //        string wordValue = grid[langRow, y];
+            string wordCode = grid[0, y];
+            string wordValue = grid[langRow, y];
 
-    //        if (wordValue == "")
-    //        {
-    //            wordValue = grid[1, y];
-    //            if (wordValue == "")
-    //                wordValue = wordCode;
-    //        }
+            if (wordValue == "")
+            {
+                wordValue = grid[1, y];
+                if (wordValue == "")
+                    wordValue = wordCode;
+            }
 
-    //        DictionaryAdd(wordCode, wordValue);
-    //    }
+            DictionaryAdd(wordCode, wordValue);
+        }
 
-    //    loadtext = null;
-    //    Resources.UnloadUnusedAssets();
-    //}
+        loadtext = null;
+        Resources.UnloadUnusedAssets();
+    }
 
-    //void DictionaryAdd(string wordCode, string wordValue)
-    //{
-    //    string wordCodeLower = wordCode.ToLower();
-    //    if (!_dictionary.ContainsKey(wordCodeLower))
-    //        _dictionary.Add(wordCodeLower, wordValue);
+    void DictionaryAdd(string wordCode, string wordValue)
+    {
+        string wordCodeLower = wordCode.ToLower();
+        if (!_dictionary.ContainsKey(wordCodeLower))
+            _dictionary.Add(wordCodeLower, wordValue);
 
-    //    //else MyDebug.LogError("Dictionary ContainsKey " + wordCodeLower + " " + wordValue);
-    //}
-    //#endregion
+        //else MyDebug.LogError("Dictionary ContainsKey " + wordCodeLower + " " + wordValue);
+    }
+    #endregion
 
 
     public static string GetText(string key)
