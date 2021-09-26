@@ -9,11 +9,6 @@ public class LevelTimer : MonoBehaviour {
 
     public Text textUITimer;
 
-    private void Start()
-    {
-        //textUITimer = GetComponent<Text>();
-    }
-
     public void StartTimer()
     {
         levelManager.time = 30;

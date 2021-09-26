@@ -55,14 +55,12 @@ public class Item : MonoBehaviour {
     #region Trigger work:
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Collider enter");
         triggerOn = true;
         spriteDown.sprite = Resources.Load<Sprite>("Key_DownFill");
     }
 
     private void OnTriggerExit(Collider other)
     {
-        //Debug.Log("Collider exit");
         triggerOn = false;
         spriteDown.sprite = Resources.Load<Sprite>("Key_Down");
     }
