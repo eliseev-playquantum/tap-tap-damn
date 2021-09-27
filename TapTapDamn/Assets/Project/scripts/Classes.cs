@@ -9,17 +9,3 @@ public class ItemClass
     public int id;
     public bool enable = false;
 }
-
-[Serializable]
-public class ModeClass
-{
-    public e_GameMode gameMode;
-    public int maxlevel;
-}
-
-[Serializable]
-public class PurseClass
-{
-    public int HardMoney;
-    public int SoftMoney;
-}

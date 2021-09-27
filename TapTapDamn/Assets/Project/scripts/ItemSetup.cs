@@ -32,12 +32,7 @@ public class ItemSetup : MonoBehaviour {
 
     public bool RCh; //--- вращение по часовой стрелке
     private float _x, _y;
-
-    // Use this for initialization
-    void Start () {
-        //CreatePrefs();
-    }
-
+    
     #region History mode:
     public void CreatePrefsHistoryMode()
     {
