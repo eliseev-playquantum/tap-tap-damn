@@ -1,14 +1,17 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Settings : MonoBehaviour
+namespace TestTask
 {
-    [Tooltip("Максимальная частота кадров")]
-  [SerializeField]  private int FPS = 30;
-    private void Awake()
+    public class Settings : MonoBehaviour
     {
-        Application.targetFrameRate = FPS;
-    }
+        [Tooltip("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ С‡Р°СЃС‚РѕС‚Р° РєР°РґСЂРѕРІ")]
+        [SerializeField] private int FPS = 30;
+        private void Awake()
+        {
+            Application.targetFrameRate = FPS;
+        }
 
+    }
 }
