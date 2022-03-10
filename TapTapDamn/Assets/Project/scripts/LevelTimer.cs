@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelTimer : MonoBehaviour {
-    public LevelManager levelManager;
-    public bool timerStarted = false;
+    public LevelManager levelManager; //не нужно делать public - лучше сделать private, requireComponet, getComponent в start
+    public bool timerStarted = false; //нужно сделать переменную private и  сделать public переменную, которая будет брать данные этой переменной
 
     public Text textUITimer;
 
     public void StartTimer()
     {
-        levelManager.time = 30;
-        IEnumerator timer = Timer();
+        levelManager.time = 30; //не нужно делать здесь 30, если time определяется в инспекторе
+        IEnumerator timer = Timer(); //зачем это определать, если эту корутину можно сразу запустить снизу
         StartCoroutine(timer);
         timerStarted = true;
     }
@@ -26,7 +26,7 @@ public class LevelTimer : MonoBehaviour {
 
     IEnumerator Timer()
     {
-        for (;;)
+        for (;;) //к чему этот цикл фор, если можно в конце перезапускать корутину
         {
             levelManager.time -= 1;
             textUITimer.text = TimeString((int)levelManager.time);

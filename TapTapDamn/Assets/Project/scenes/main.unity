@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -437,6 +437,10 @@ MonoBehaviour:
   SprinterCenterOffset: {x: 0, y: 0.44}
   sectors: 48
   speed: 0.508
+  keyUp: {fileID: 21300000, guid: 687a23e6c81671e42b7170acf4e48859, type: 3}
+  keyUpFill: {fileID: 21300000, guid: 3a4017dd0d026fc47a4609a1c54a2d38, type: 3}
+  keyDown: {fileID: 21300000, guid: e834d5af210a7b94588f0187429c6d96, type: 3}
+  keyDownFill: {fileID: 21300000, guid: 9910cbfafabeb5b48b126d91a496ad34, type: 3}
   levelManager: {fileID: 339258831}
   RCh: 1
 --- !u!114 &339258830
