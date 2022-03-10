@@ -8,24 +8,33 @@ public class Item : MonoBehaviour {
     public LevelManager levelManager;
 
     [Header("Item class:")]
-    public ItemClass itemClass;
+    public ItemClass itemClass; //лучше сделать private и serizlizeField
 
     [Header("Item Up:")]
-    public SpriteRenderer spriteUp;
+    public SpriteRenderer spriteUp; //лучше сделать private и serizlizeField
 
     [Header("Item Down:")]
-    public SpriteRenderer spriteDown;
+    public SpriteRenderer spriteDown;//лучше сделать private и serizlizeField
+
+    [HideInInspector]
+    public Sprite spriteKeyUp;
+    [HideInInspector]
+    public Sprite spriteKeyUpFill;
+    [HideInInspector]
+    public Sprite spriteKeyDown;
+    [HideInInspector]
+    public Sprite spriteKeyDownFill;
 
     bool triggerOn = false;
 
     private void Start()
     {
-        levelManager.items.Add(itemClass);
+        levelManager.items.Add(itemClass); 
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && triggerOn)
+        if (Input.GetMouseButtonDown(0) && triggerOn) //считывания нажатия кнопки мыши происходит в item - то есть на количество item это будет считываться - под нажатия нужно сделать отдельный класс
         {
             //Debug.Log("MB_OK");
             itemClass.enable = !itemClass.enable;
@@ -42,27 +51,27 @@ public class Item : MonoBehaviour {
         levelManager.ClickManager(enable);
         if (enable)
         {
-            spriteUp.sprite = Resources.Load<Sprite>("Key_UpFill");
+            spriteUp.sprite = spriteKeyUpFill;
             spriteUp.transform.DOLocalMoveY(2.2f, 0.2f);
         }
         else
         {
-            spriteUp.sprite = Resources.Load<Sprite>("Key_Up");
+            spriteUp.sprite = spriteKeyUp;
             spriteUp.transform.DOLocalMoveY(0.0f, 0.2f);
         }
     }
 
     #region Trigger work:
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //любой триггер может это изменить - соответственно при добавлении в игру фич вся эта система сломается - нужно использовать интерфейс
     {
         triggerOn = true;
-        spriteDown.sprite = Resources.Load<Sprite>("Key_DownFill");
+        spriteDown.sprite = spriteKeyDownFill;
     }
 
     private void OnTriggerExit(Collider other)
     {
         triggerOn = false;
-        spriteDown.sprite = Resources.Load<Sprite>("Key_Down");
+        spriteDown.sprite = spriteKeyDown;
     }
     #endregion
 }

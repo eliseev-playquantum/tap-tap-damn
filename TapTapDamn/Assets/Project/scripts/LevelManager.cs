@@ -5,18 +5,18 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 public class LevelManager : MonoBehaviour {
-    public ItemSetup itemSetup;
+    public ItemSetup itemSetup; //не нужно делать public - лучше сделать private, requireComponet, getComponent в start
     public List<ItemClass> items = new List<ItemClass>();
-    public int time = 0;
-    public int level = 0;
+    public int time = 0; //зачем здесь значение time, если рассчет time идет в отдельном классе timer
+    public int level = 0; //нужно сделать private
 
-    public LevelTimer levelTimer;
-    public Text levelText;
+    public LevelTimer levelTimer; //нужно сделать private B serializeField
+    public Text levelText; //нужно сделать private B serializeField
 
-    public e_GameMode selectedmode;
+    public e_GameMode selectedmode; //должно быть private
 
     [Header("Game canvas:")]
-    public GameObject GameCanvas;
+    public GameObject GameCanvas; //зачем с большой буквы название переменной?
 
     [Header("Reward window script:")]
     public RewardWindow rewardWindowScript;
@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour {
         {
             bool end = true;
             foreach (ItemClass item in items)
-                if (item.enable == false) end = false;
+                if (item.enable == false) end = false; //не соблюдается стандартизация написания if - тут пишется if так, на следующей строке по-другому
 
             if (end)
             {
@@ -52,7 +52,7 @@ public class LevelManager : MonoBehaviour {
         GameCanvas.SetActive(true);
 
         SpriteRenderer[] sprites = itemSetup.KeyCenter.GetComponentsInChildren<SpriteRenderer>();
-        foreach (SpriteRenderer sprite in sprites) sprite.sharedMaterial.DOFloat(1, "_Transparent", 0.3f);
+        foreach (SpriteRenderer sprite in sprites) sprite.sharedMaterial.DOFloat(1, "_Transparent", 0.3f); //не соблюдается стандартизация написания foreach - везде по-разному пишется
 
         switch (selectedmode)
         {
@@ -78,7 +78,7 @@ public class LevelManager : MonoBehaviour {
         levelText.text = level.ToString();
     }
 
-    public void LevelEnd()
+    public void LevelEnd() //правильней сделать на это event, чтобы каждый класс сам знал, что ему делать в конце уровня
     {
         //---завершили уровень
         //---показать окно награды

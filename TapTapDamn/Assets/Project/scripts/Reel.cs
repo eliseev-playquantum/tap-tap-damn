@@ -16,7 +16,7 @@ public class Reel : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () { //лучше использовать fixedUpdate для этого
         if (start)
             transform.RotateAround(target.localPosition, new Vector3(0.0f, 0.0f, 1.0f), 100 * Time.deltaTime * speed);
         else
